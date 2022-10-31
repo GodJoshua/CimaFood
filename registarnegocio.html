@@ -36,8 +36,6 @@
         <!-- se acaba barra de busqueda -->
         <!-- Boton que me mande a otra pagina -->
         <a href="agregar.html" class="btn btn-outline-success" type="submit">Agregar productos</a>
-        <a href="registarnegocio.html" class="btn btn-outline-success" type="submit">Registar Negocio</a>
-
 
 
         </div>
@@ -53,50 +51,44 @@
 
         </div>
         </div>
-        
       </nav>
-      <!-- titulo en medio de la pagina color amarillo -->
+        <!-- Termina la navbar -->
+
+        <!-- Empieza el formulario -->
+        <!-- Agregar un formulario que me permita agregar una imagen -->
         <div class="container">
             <div class="row">
-            <div class="col-12">
-                <h1 class="text-center text-warning">Cafeteria</h1>
-            </div>
-            </div>
-        </div>
-        <!-- fin titulo -->
-    <!-- 3 botones grandes centrales uno abajo de otro -->
-    <div class="container " id="botones">
-        <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block">Desayunos</button>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='comidas.html'">Comidas</button>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block">Bebidas</button>
-            </div>
-
-        </div>
-    </div>
-    <!-- fin botones -->
-<!-- boton con icono de mapa en la esquina inferior izquierda -->
-    <div class="container" id="mapa">
-        <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-success btn-lg btn-block"><i class="fas fa-map-marker-alt"></i></button>
+                <div class="col-md-6">
+                    <form action="agregar.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="nombre">Nombre del negocio</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Escribe el nombre del producto</small> <!-- ayuda para el usuario -->  
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="precio">horario del negocio</label>
+                            <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Escribe el precio del producto</small> <!-- ayuda para el usuario -->  
+                        </div> 
+                        <div class="form-group mt-3">
+                            <label for="descripcion">Descripcion</label>
+                            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Escribe la descripcion del producto</small> <!-- ayuda para el usuario -->    
+                        </div>
+                        
+                        <div class="form-group mt-3">
+                            <label for="imagen">Imagen del negocio</label>
+                            <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Imagen" aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Sube una imagen del producto</small> <!-- ayuda para el usuario -->
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3">Agregar</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- fin boton mapa -->
-
+        <!-- Termina el formulario -->
+        <!-- Empieza el footer -->
 
     
-
-
 </body>
 </html>
