@@ -62,30 +62,29 @@
                     <form action="agregar.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" aria-describedby="helpId">
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Escribe el nombre del producto</small> <!-- ayuda para el usuario -->  
                         </div>
                         <div class="form-group mt-3">
                             <label for="precio">Precio</label>
-                            <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" aria-describedby="helpId">
+                            <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Escribe el precio del producto</small> <!-- ayuda para el usuario -->  
                         </div> 
                         <div class="form-group mt-3">
                             <label for="descripcion">Descripcion</label>
-                            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="helpId">
+                            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Escribe la descripcion del producto</small> <!-- ayuda para el usuario -->    
                         </div>
                         <div class="form-group mt-3">
                             <label for="descripcion">Cantidad</label>
-                            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="helpId">
+                            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Cauntas piezas hay</small> <!-- ayuda para el usuario -->    
                         </div>
                         <div class="form-group mt-3">
                             <label for="descripcion">Categoria</label>
-                        
                             <small id="helpId" class="text-muted">Que categoria es</small> 
                             <!-- lista para escoger uno de tres categorias -->
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" required>
                                 <option selected>Selecciona una categoria</option>
                                 <option value="1">Desayuno</option>
                                 <option value="2">Comidas </option>
@@ -97,7 +96,7 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="imagen">Imagen</label>
-                            <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Imagen" aria-describedby="helpId">
+                            <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Imagen" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Sube una imagen del producto</small> <!-- ayuda para el usuario -->
                         </div>
                         <button type="submit" class="btn btn-success mt-3">Agregar</button>
