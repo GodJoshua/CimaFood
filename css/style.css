@@ -1,0 +1,37 @@
+body{
+    background-color: #DAF7A6 ;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+    padding: 1em;
+    margin: 0auto;
+}
+
+#botones{
+    justify-content: center;
+    aslign-items: center;
+    display: flex;
+    
+}
+
+#mapa{
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    transform: translate(0 , -100%);
+
+}
+
+#col{
+    width: 50;
+    height: 30;
+    object-fit: cover;
+}
