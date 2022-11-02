@@ -1,20 +1,11 @@
-*<!-- validar datos del servidor -->
-<?php
-$host = "localhost";
-$user = "root";
-$pass = "arath123";
-$db = "cimafood";
-$conexion = mysql_connect($host, $user, $pass) or die("Error al conectar con el servidor");
-mysql_select_db($db, $conexion) or die("Error al conectar con la base de datos");
-?>
 
-*<!-- verificar la conexion a la base de datos y las tablas-->
+<!-- mostrar que estas conectado a la base de datos con html -->
 <?php
-$conexion = mysql_connect("localhost", "root", "arath123");
+$conexion = mysqli_connect("localhost", "root", "arath123", "cimafood");
 if (!$conexion) {
-die('No se pudo conectar: ' . mysql_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
-echo 'Conectado satisfactoriamente';
-mysql_close($conexion);
-?>
-
+echo "Connected successfully";
+ mysqli_close($conexion);
+ ?>
+ 

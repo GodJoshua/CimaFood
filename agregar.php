@@ -1,63 +1,22 @@
+
 *<!-- obtener datos de un formulario html -->
-// <?php
-// $nombre = $_POST['nombre'];
-// $apellido = $_POST['apellido'];
-// $edad = $_POST['edad'];
-// $sexo = $_POST['sexo'];
-// $direccion = $_POST['direccion'];
-// $telefono = $_POST['telefono'];
-// $email = $_POST['email'];
-// $usuario = $_POST['usuario'];
-// $password = $_POST['password'];
-// ?>
-//
-// *<!-- insertar datos en la base de datos -->
-// <?php
-// $conexion = mysql_connect("localhost", "root", "arath123");
-// mysql_select_db("cimafood", $conexion);
-// mysql_query("INSERT INTO usuarios (nombre, apellido, edad, sexo, direccion, telefono, email, usuario, password)
-// VALUES ('$nombre', '$apellido', '$edad', '$sexo', '$direccion', '$telefono', '$email', '$usuario', '$password')");
-// mysql_close($conexion);
-// ?>
-//
-// *<!-- mostrar datos de la base de datos -->
-// <?php
-// $conexion = mysql_connect("localhost", "root", "arath123");
-// mysql_select_db("cimafood", $conexion);
-// $result = mysql_query("SELECT * FROM usuarios");
-// while ($row = mysql_fetch_array($result)) {
-// echo $row['nombre'] . " " . $row['apellido'];
-// echo "<br />";
-// }
-// mysql_close($conexion);
-// ?>
-//
-// *<!-- eliminar datos de la base de datos -->
-// <?php
-// $conexion = mysql_connect("localhost", "root", "arath123");
-// mysql_select_db("cimafood", $conexion);
-// mysql_query("DELETE FROM usuarios WHERE id = '$id'");
-// mysql_close($conexion);
-// ?>
-//
-// *<!-- actualizar datos de la base de datos -->
-// <?php
-// $conexion = mysql_connect("localhost", "root", "arath123");
-// mysql_select_db("cimafood", $conexion);
-// mysql_query("UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', edad = '$edad', sexo = '$sexo', direccion = '$direccion', telefono = '$telefono', email = '$email', usuario = '$usuario', password = '$password' WHERE id = '$id'");
-// mysql_close($conexion);
-// ?>
-//
-// *<!-- buscar datos de la base de datos -->
-// <?php
-// $conexion = mysql_connect("localhost", "root", "arath123");
-// mysql_select_db("cimafood", $conexion);
-// $result = mysql_query("SELECT * FROM usuarios WHERE nombre = '$nombre'");
-// while ($row = mysql_fetch_array($result)) {
-// echo $row['nombre'] . " " . $row['apellido'];
-// echo "<br />";
-// }
-// mysql_close($conexion);
-// ?>
-//
-// 
+<?php
+
+$nombre = $_POST['nombre'];
+$descripcion = $_POST['descripcion'];
+$cantidad = $_POST['cantidad'];
+$categoria = $_POST['categoria'];
+$image = $_FILES['image']['tmp_name'];
+$img_content = addslashes(file_get_contents($image));
+$precio = $_POST['precio'];
+
+?>
+
+ *<!-- insertar datos en la base de datos -->
+<?php
+$conexion = mysqli_connect("localhost", "root", "arath123", "cimafood");
+$consulta = "INSERT INTO productos (Nombre_Producto, Descripcion_Producto, cantidad, idCategoria, imagen, precio) VALUES ('$nombre', '$descripcion', '$cantidad', '$categoria', '$image', '$precio')";
+$resultado = mysqli_query($conexion, $consulta);
+mysqli_close($conexion);
+?>
+
