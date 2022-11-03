@@ -21,6 +21,7 @@
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <div class="collapse" id="navbarToggleExternalContent">
@@ -33,6 +34,11 @@
                 <button class="btn btn-outline-success" type="submit">Buscar owo</button> <!-- ya que implemente la base de datos veo que pedo alv -->
                 </form>
         <!-- se acaba barra de busqueda -->
+        <!-- Boton que me mande a otra pagina -->
+        <a href="agregar.html" class="btn btn-outline-success" type="submit">Agregar productos</a>
+        <a href="registarnegocio.html" class="btn btn-outline-success" type="submit">Registar Negocio</a>
+
+
 
         </div>
       </div>
@@ -43,49 +49,54 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         <div class="container">
-            <h1 class="text-center text-warning" > <a href="index.html" style="color:#FFC300; text-decoration: none" >CimaFood</a></h1>
+            <h1 class="text-center text-warning" > <a href="index.php" style="color:#FFC300; text-decoration: none" >CimaFood</a></h1>
 
         </div>
         </div>
         
       </nav>
-      <!--Tarjetas con imagenes   -->
+      <!-- titulo en medio de la pagina color amarillo -->
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/demoimg.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h5 class="card-title">Tienda de Joshua</h5>
-                        <p class="card-text">Joshua Meltz</p>
-                        <a href="#" class="btn btn-primary">Ver productos</a>
-                        <p >Estatus:</p> <p class="text-success">Abierto</p>       <!--Aqui se pondria el estatus de la tienda con php   -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/3.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h5 class="card-title text-center">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-12">
+                <h1 class="text-center text-warning">Cafeteria</h1>
+            </div>
             </div>
         </div>
-        <!--Tarjetas con imagenes   -->
+        <!-- fin titulo -->
+    <!-- 3 botones grandes centrales uno abajo de otro -->
+    <div class="container " id="botones">
+        <div class="row">
+            <div class="col-4">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='negocio.php'">Desayunos</button>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-4">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='comidas.php'">Comidas</button>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-4">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='bebidas.php'">Bebidas</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin botones -->
+<!-- boton con icono de mapa en la esquina inferior izquierda -->
+    <div class="container" id="mapa">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success btn-lg btn-block"><i class="fas fa-map-marker-alt"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
 
 </body>
 </html>

@@ -1,9 +1,3 @@
-<!-- incluir conexion con base de datos -->
-<?php
- include("conexion.php");
-?> 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +21,6 @@
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
     <div class="collapse" id="navbarToggleExternalContent">
@@ -40,11 +33,6 @@
                 <button class="btn btn-outline-success" type="submit">Buscar owo</button> <!-- ya que implemente la base de datos veo que pedo alv -->
                 </form>
         <!-- se acaba barra de busqueda -->
-        <!-- Boton que me mande a otra pagina -->
-        <a href="agregar.html" class="btn btn-outline-success" type="submit">Agregar productos</a>
-        <a href="registarnegocio.html" class="btn btn-outline-success" type="submit">Registar Negocio</a>
-
-
 
         </div>
       </div>
@@ -55,54 +43,52 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         <div class="container">
-            <h1 class="text-center text-warning" > <a href="index.html" style="color:#FFC300; text-decoration: none" >CimaFood</a></h1>
+            <h1 class="text-center text-warning" > <a href="index.php" style="color:#FFC300; text-decoration: none" >CimaFood</a></h1>
 
         </div>
         </div>
         
       </nav>
-      <!-- titulo en medio de la pagina color amarillo -->
+      <!--Tarjetas con imagenes   -->
         <div class="container">
             <div class="row">
-            <div class="col-12">
-                <h1 class="text-center text-warning">Cafeteria</h1>
-            </div>
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/demoimg.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">Tienda de Joshua</h5>
+                        <p class="card-text">Joshua Meltz</p>
+                        <a href="#" class="btn btn-primary">Ver productos</a>
+                        <p >Estatus:</p> <p class="text-success">Abierto</p>       
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- fin titulo -->
-    <!-- 3 botones grandes centrales uno abajo de otro -->
-    <div class="container " id="botones">
-        <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block">Desayunos</button>
-            </div>
-            </div>
+<?php $link = new PDO('mysql:host=localhost;dbname=cimafood', 'root', 'arath123'); 
+?>
+<?php foreach ($link->query('SELECT * from negocio') as $row){  ?> 
+<div class="container" display:inline-block; margin-top: 50px>
             <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='comidas.html'">Comidas</button>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block">Bebidas</button>
-            </div>
-
-        </div>
-    </div>
-    <!-- fin botones -->
-<!-- boton con icono de mapa en la esquina inferior izquierda -->
-    <div class="container" id="mapa">
-        <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-success btn-lg btn-block"><i class="fas fa-map-marker-alt"></i></button>
-            </div>
-        </div>
-    </div>
-    <!-- fin boton mapa -->
-
-
-    
-
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"><?php echo $row['nombre_negocio'] ?></p>
+                        <p >Descripcion del Negocio:</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
+                        <p >Estatus:</p> <p class="text-success"><?php echo $row['idestatus'] ?></p> 
+                        <p >Correo:</p> <p class="text-success"><?php echo $row['correo'] ?></p>
+                        <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>     
+                        <?php
+}
+?>
+<a href="#" class="btn btn-primary">Ir a productos</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 </body>
 </html>
