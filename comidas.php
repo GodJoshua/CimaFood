@@ -68,27 +68,29 @@
 <?php $link = new PDO('mysql:host=localhost;dbname=cimafood', 'root', 'arath123'); 
 ?>
 <?php foreach ($link->query('SELECT * from negocio') as $row){  ?> 
-<div class="container" display:inline-block; margin-top: 50px>
+<div class="container" display:inline-block; margin-top: 50px;>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">
                         <img src="img/" class="card-img-top" alt="...">
                         <div class="card-body">
                         <h5 class="card-title"></h5>
-                        <p class="card-text"><?php echo $row['nombre_negocio'] ?></p>
-                        <p >Descripcion del Negocio:</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
+                        <p class="card-text" align="center"><b><?php echo $row['nombre_negocio'] ?></p></b>
+                        <p>Descripcion del Negocio</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
                         <p >Estatus:</p> <p class="text-success"><?php echo $row['idestatus'] ?></p> 
                         <p >Correo:</p> <p class="text-success"><?php echo $row['correo'] ?></p>
                         <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>     
+                        </div>
+                        <div class="card-footer" align="center">
+                        <a href="#" class="btn btn-primary">Ir a productos</a></div>
+
+</div>
+</div>
+</div>
+</div>
                         <?php
-}
-?>
-<a href="#" class="btn btn-primary">Ir a productos</a>
-</div>
-</div>
-</div>
-</div>
-</div>
+}?>
+
 
 </body>
 </html>
