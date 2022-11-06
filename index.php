@@ -1,3 +1,11 @@
+<!-- requerir estar con inicio de sesion -->
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
