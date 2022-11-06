@@ -13,6 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<?php require 'header.php' ?>
 <?php
 // Te recomiendo utilizar esta conección, la que utilizas ya no es la recomendada. 
 $link = mysqli_connect("localhost", "root", "arath123", "cimafood");
