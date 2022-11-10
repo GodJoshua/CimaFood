@@ -25,21 +25,6 @@
 <body>
 <?php require 'header.php' ?>
       <!--Tarjetas con imagenes   -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/demoimg.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h5 class="card-title">Tienda de Joshua</h5>
-                        <p class="card-text">Joshua Meltz</p>
-                        <a href="#" class="btn btn-primary">Ver productos</a>
-                        <p >Estatus:</p> <p class="text-success">Abierto</p>       
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 <?php $link = new PDO('mysql:host=localhost;dbname=cimafood', 'root', 'arath123'); 
 ?>
 <?php foreach ($link->query('SELECT * from negocio') as $row){  ?> 
@@ -53,7 +38,7 @@
                         <p class="card-text" align="center"><b><?php echo $row['nombre_negocio'] ?></p></b>
                         <p>Descripcion del Negocio</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
                         <p >Estatus:</p> <p class="text-success"><?php echo $row['idestatus'] ?></p> 
-                        <p >Correo:</p> <p class="text-success"><?php echo $row['correo'] ?></p>
+                        <p >Correo:</p> <p class="text-success"><?php echo $row['idusuario'] ?></p>
                         <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>     
                         </div>
                         <div class="card-footer" align="center">
