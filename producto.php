@@ -1,8 +1,3 @@
-<!-- incluir conexion con base de datos -->
-<?php
- include("conexion.php");
-?> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,39 +24,9 @@
 
 </head>
 <body>
-    <!-- requerir conexion a base de datos -->
-    <?php require_once 'conexion.php'; ?>
-    <!-- requerir header -->
+<!-- requerir header -->
+<?php require 'header.php' ?>
 
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-succes p-4">
-          <h5 class="text-white h4">Buscador de comida OwO</h5>
-          <span class="text-muted">Que deseas de comer uwu</span>
-          <!-- agregar barra de busqueda -->
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar owo</button> <!-- ya que implemente la base de datos veo que pedo alv -->
-                </form>
-        <!-- se acaba barra de busqueda -->
-        <!-- Boton que me mande a otra pagina -->
-        <a href="agregar.html" class="btn btn-outline-success" type="submit">Agregar productos</a>
-
-
-        </div>
-      </div>
-      <!-- La navbar -->
-      <nav class="navbar navbar-succes bg-success">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        <div class="container">
-            <h1 class="text-center text-warning" > <a href="index.html" style="color:#FFC300; text-decoration: none" >CimaFood</a></h1>
-
-        </div>
-        </div>
-      </nav>
-        <!-- Termina la navbar -->
 
         <!-- Empieza el formulario -->
         <!-- Agregar un formulario que me permita agregar una imagen -->

@@ -20,7 +20,7 @@
                 </form>
         <!-- se acaba barra de busqueda -->
         <!-- Boton que me mande a otra pagina -->
-        <a href="agregar.html" class="btn btn-outline-success" type="submit">Agregar productos</a>
+        <a href="producto.php" class="btn btn-outline-success" type="submit">Agregar productos</a>
         <a href="registarnegocio.html" class="btn btn-outline-success" type="submit">Registar Negocio</a>
 
 
