@@ -53,6 +53,18 @@
         </div>
       </nav>
         <!-- Termina la navbar -->
+<!-- script para confirmar enviar formulario -->
+<script>
+    function confirmar(){
+        var respuesta = confirm("¿Estas seguro de enviar el formulario?");
+        if(respuesta == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+<!-- Termina script para confirmar enviar formulario -->
 
         <!-- Empieza el formulario -->
         <!-- Agregar un formulario que me permita agregar una imagen -->
@@ -66,9 +78,14 @@
                             <small id="helpId" class="text-muted">Escribe el nombre del producto</small> <!-- ayuda para el usuario -->  
                         </div>
                         <div class="form-group mt-3">
+                            <label for="precio">horario de inicio</label>
+                            <input type="time" name="horarioinicio" id="horarioinicio" class="form-control" placeholder="Precio" aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Escribe a que horas empiezas a vender</small> <!-- ayuda para el usuario -->  
+                        </div> 
+                        <div class="form-group mt-3">
                             <label for="precio">horario de cierre</label>
-                            <input type="time" name="horario" id="precio" class="form-control" placeholder="Precio" aria-describedby="helpId" required>
-                            <small id="helpId" class="text-muted">Escribe el precio del producto</small> <!-- ayuda para el usuario -->  
+                            <input type="time" name="horario" id="horario" class="form-control" placeholder="Precio" aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Escribe a que hora cierras el changarro</small> <!-- ayuda para el usuario -->  
                         </div> 
                         <div class="form-group mt-3">
                             <label for="imagen">Imagen del negocio</label>
@@ -80,9 +97,33 @@
                             <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Escribe la descripcion del producto</small> <!-- ayuda para el usuario -->    
                         </div>
-                        
-                        
-                        <button type="submit" class="btn btn-success mt-3">Agregar</button>
+                        <div class="form-group mt-3">
+                        <select name="usuario" id="usuario" class="form-control">
+                            <label for="usuario"> Usuario </label>
+                            <option selected>Selecciona tu nombre</option>
+                            <?php 
+                                $conexion = mysqli_connect("localhost", "root", "arath123", "cimafood");
+                                mysqli_set_charset($conexion, "utf8");
+                                
+                                $consulta = "SELECT idusuarios, nombre, apellidoPat, apellidoMat FROM usuarios ORDER BY idusuarios ASC";
+                                $resultado = mysqli_query($conexion,$consulta);
+                                while ($row = mysqli_fetch_array($resultado))
+                                {
+                                    $nombre = $row['nombre'];
+                                    $pat = $row['apellidoPat'];
+                                    $mat = $row['apellidoMat'];
+                                    $id = $row['idusuarios'];
+                                    
+                                    ?>
+                                    <option value="<?php echo $id; ?>"><?php echo $nombre, " ", $pat," ", $mat; ?></option>
+                                    <?php
+
+                                }
+                                ?>
+                            </select>
+                        </div>
+                           
+                    <input type="submit" value="enviar" class="btn btn-success mt-3" onclick="return confirmar() " >
                     </form>
                 </div>
             </div>

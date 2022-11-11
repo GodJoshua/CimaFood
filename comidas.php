@@ -32,13 +32,13 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="img/" class="card-img-top" alt="...">
+                    <div align="center" ><img src="data:image/jpg;base64,<?php echo base64_encode($row['imagen_negocio']); ?>" width="200" height="150" > </div>
                         <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text" align="center"><b><?php echo $row['nombre_negocio'] ?></p></b>
                         <p>Descripcion del Negocio</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
                         <p >Estatus:</p> <p class="text-success"><?php echo $row['idestatus'] ?></p> 
-                        <p >Correo:</p> <p class="text-success"><?php echo $row['idusuario'] ?></p>
+                        <p >Usuario:</p> <p class="text-success"><?php echo $row['idusuarios'] ?></p> <!-- (Debo cambiarle para que salga el nombre del usuario) -->
                         <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>     
                         </div>
                         <div class="card-footer" align="center">

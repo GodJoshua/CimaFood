@@ -16,7 +16,7 @@ body{
 
 #botones{
     justify-content: center;
-    aslign-items: center;
+    align-items: center;
     display: flex;
     
 }
@@ -35,3 +35,4 @@ body{
     height: 30;
     object-fit: cover;
 }
+
