@@ -1,20 +1,42 @@
-
-
-<!-- iniciar sesion -->
 <?php
-$conexion = mysqli_connect("localhost", "root", "arath123", "cimafood"); 
-$usuario = $_POST['usuario'];
-$password = $_POST['password'];
-$consulta = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
-$resultado = mysqli_query($conexion, $consulta);
-$filas = mysqli_num_rows($resultado);
-if ($filas) {
-  header("location: /proyecto");
-} else {
-  echo "Error en la autentificacion";
-}
-mysqli_free_result($resultado);
-mysqli_close($conexion);
+
+  session_start();
+
+  if (isset($_SESSION['usuario_id'])) {
+    header('Location: /index.php');
+  }
+  require 'database.php';
+
+ 
+
+  if (!empty($_POST['usuario']) && !empty($_POST['password'])) {
+    $records = $conn->prepare('SELECT idusuarios, correo, psw FROM usuarios WHERE correo = :correo');
+    $records->bindParam(':correo', $_POST['usuario']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $message = ''; 
+
+
+ 
+
+    if (count($results) > 0 && ($_POST['password'] == $results['psw']) ) {
+      $_SESSION['usuario_id'] = $results['idusuarios'];
+      header("Location: /panaderia/index.php");
+    }
+    else {
+      $message = 'No coinciden contraseña y password';
+    }
+
+  }
+
+  
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>

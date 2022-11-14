@@ -1,5 +1,24 @@
-<!-- requerir estar con inicio de sesion -->
+<?php
+  session_start();
 
+  require 'database.php';
+
+  if (isset($_SESSION['usuario_id'])) {
+    $records = $conn->prepare('SELECT idusuarios, correo, psw FROM usuarios WHERE idusuarios = :id');
+    $records->bindParam(':id', $_SESSION['usuario_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+    else {
+      $message = 'Algo pasa';
+    }
+  }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +47,21 @@
 </head>
 <body>
 <?php require 'header.php' ?>
-      </nav>
+
+
+    <?php if(!empty($user)): ?>
+      <br> Bienvenido. <?= $user['correo']; ?>
+      <br>Has iniciado sesion
+        <a href="logout.php">
+        Logout
+      </a>
+    <?php else: ?>
+      <h1>Inicia Sesion o Registrate</h1>
+
+      <a href="login.php">Iniciar Sesion</a> or
+      <a href="signup.php">Registrarse</a>
+    <?php endif; ?>
+
       <!-- titulo en medio de la pagina color amarillo -->
         <div class="container">
             <div class="row">
@@ -66,6 +99,7 @@
             </div>
         </div>
     </div>
+
 
 
 
