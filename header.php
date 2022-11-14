@@ -20,8 +20,7 @@
                 </form>
         <!-- se acaba barra de busqueda -->
         <!-- Boton que me mande a otra pagina -->
-        <a href="producto.php" class="btn btn-outline-success" type="submit">Agregar productos</a>
-        <a href="registrar.php" class="btn btn-outline-success" type="submit">Registar Vendedor</a>
+        <a href="panelusuario.php" class="btn btn-outline-success" type="submit">Panel de Vendedor</a>
         <a href="logout.php" class="btn btn-outline-success" type="submit">Cerrar Sesion</a>
         
 

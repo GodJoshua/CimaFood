@@ -28,3 +28,5 @@ mysqli_close($conexion);
 header("Location: registarnegocio.php", TRUE, 301);
 exit();
 ?>
+
+

@@ -56,10 +56,10 @@
                             <input type="text" name="apellidomat" id="apellidomat" class="form-control" placeholder="Apellido Materno" aria-describedby="helpId" >
                             <small id="helpId" class="text-muted">Escribe tu apellido materno</small>    
                         </div>
-                            
+                            <div class="form-group mt-3" >
                             <select name="facultad" id="facultad" class="form-control">
                             <label for="facultad"> Facultad </label>
-                            <option selected>Selecciona una categoria</option>
+                            <option selected>A que facultad perteneces?</option>
                             <?php 
                                 $conexion = mysqli_connect("localhost", "root", "arath123", "cimafood");
                                 mysqli_set_charset($conexion, "utf8");
@@ -78,6 +78,9 @@
                                 }
                                 ?>
                             </select>
+
+                            </div>
+                            
                         
                         <button type="submit" class="btn btn-success mt-3 ">Agregar</button>
                     </form>

@@ -26,8 +26,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CimaFood</title>
-   <!-- Bootstrap 5 y javascript  -->
+    <title>Panel de Vendedor</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -43,66 +42,30 @@
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
-<?php require 'header.php' ?>
+    <?php require 'header.php' ?>
     <?php if(!empty($user)): ?>
       <br> Bienvenido. <?= $user['correo']; ?>
       <br>Has iniciado sesion
-        <a href="logout.php">
-        Logout
-      </a>
-    <?php else: ?>
-      <h1>Inicia Sesion o Registrate</h1>
-
-      <a href="login.php">Iniciar Sesion</a> or
-      <a href="registrar.php">Registrarse</a>
-    <?php endif; ?>
-
-      <!-- titulo en medio de la pagina color amarillo -->
+      <!-- Dos botones centrados -->
         <div class="container">
             <div class="row">
-            <div class="col-12">
-                <h1 class="text-center text-warning">Cafeteria</h1>
+            <div class="col-sm-6">
+                <a href="producto.php" class="btn btn-primary">Subir Producto</a>
             </div>
+            <div class="col-sm-6">
+                <a href="logout.php" class="btn btn-primary">Cerrar Sesion</a>
             </div>
-        </div>
-        <!-- fin titulo -->
-    <!-- 3 botones grandes centrales uno abajo de otro -->
-    <div class="container " id="botones">
-        <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='negocio.php'">Desayunos</button>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='vendedores.php'">Vendedores</button>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-4">
-                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='bebidas.php'">Bebidas</button>
             </div>
 
-        </div>
-    </div>
-    <!-- fin botones -->
-<!-- boton con icono de mapa en la esquina inferior izquierda -->
-    <div class="container" id="mapa">
-        <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-success btn-lg btn-block"><i class="fas fa-map-marker-alt"></i></button>
-            </div>
-        </div>
-    </div>
+    <?php else: ?>
+      <h1>Inicia Sesion o Registrate para publicar productos</h1>
 
-
-
+      <a href="login.php">Iniciar Sesion</a> or
+      <a href="signup.php">Registrarse</a>
+    <?php endif; ?>
 
     
-
-
 </body>
 </html>

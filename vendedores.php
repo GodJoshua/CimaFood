@@ -27,7 +27,7 @@
       <!--Tarjetas con imagenes   -->
 <?php $link = new PDO('mysql:host=localhost;dbname=cimafood', 'root', 'arath123'); 
 ?>
-<?php foreach ($link->query('SELECT * from negocio') as $row){  ?> 
+<?php foreach ($link->query('SELECT * from negocio INNER JOIN usuarios WHERE negocio.idusuarios = usuarios.idusuarios') as $row){  ?> 
 <div class="container" display:inline-block; margin-top: 50px;>
             <div class="row">
                 <div class="col-sm-4">
@@ -39,7 +39,9 @@
                         <p>Descripcion del Negocio</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
                         <p >Estatus:</p> <p class="text-success"><?php echo $row['idestatus'] ?></p> 
                         <p >Usuario:</p> <p class="text-success"><?php echo $row['idusuarios'] ?></p> <!-- (Debo cambiarle para que salga el nombre del usuario) -->
-                        <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>     
+                        <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>
+                        <p >Nombre Vendedor:</p> <p class="text-success"><?php echo $row['nombre'], ' ', $row['apellidoPat'] ?></p>    
+
                         </div>
                         <div class="card-footer" align="center">
                         <a href="#" class="btn btn-primary">Ir a productos</a></div>
@@ -53,3 +55,5 @@
 
 </body>
 </html>
+
+<!-- Hacer consulta de dos tablas -->
