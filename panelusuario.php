@@ -55,6 +55,9 @@
                 <a href="producto.php" class="btn btn-primary">Subir Producto</a>
             </div>
             <div class="col-sm-6">
+                <a href="modificarproductos.php" class="btn btn-primary">SEditar Productos</a>
+            </div>
+            <div class="col-sm-6">
                 <a href="logout.php" class="btn btn-primary">Cerrar Sesion</a>
             </div>
             </div>

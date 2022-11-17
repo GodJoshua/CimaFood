@@ -1,3 +1,26 @@
+<?php
+  session_start();
+
+  require 'database.php';
+
+  if (isset($_SESSION['usuario_id'])) {
+    $records = $conn->prepare('SELECT * from negocio INNER JOIN usuarios WHERE negocio.idusuarios = usuarios.idusuarios AND usuarios.idusuarios = :id');
+    $records->bindParam(':id', $_SESSION['usuario_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+    else {
+      $message = 'Algo pasa';
+    }
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +58,12 @@
                 <div class="col-md-6">
                     <form action="agregar.php" method="POST" action="agregar.php" enctype="multipart/form-data">
                         <div class="form-group">
+                            <?= $user['nombre'], ' ', $user['apellidoPat'],' ',  ', ingresa los datos para agregar tu producto UwU', $user['idnegocio']?> 
+
+
+
+                        </div>
+                        <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" aria-describedby="helpId" required>
                             <small id="helpId" class="text-muted">Escribe el nombre del producto</small> <!-- ayuda para el usuario -->  
@@ -71,6 +100,8 @@
                             <input type="file" class="form-control" name="image" id="image"  multiple>
                             <small id="helpId" class="text-muted">Sube una imagen del producto</small> <!-- ayuda para el usuario -->
                         </div>
+                        <input type="hidden" name="id" value="<?= $user['idnegocio'] ?>">
+                        
                         <button type="submit" class="btn btn-success mt-3">Agregar</button>
                     </form>
                 </div>
