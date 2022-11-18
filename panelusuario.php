@@ -1,10 +1,11 @@
+
 <?php
   session_start();
 
   require 'database.php';
 
   if (isset($_SESSION['usuario_id'])) {
-    $records = $conn->prepare('SELECT idusuarios, correo, psw FROM usuarios WHERE idusuarios = :id');
+    $records = $conn->prepare('SELECT * from negocio INNER JOIN usuarios WHERE negocio.idusuarios = usuarios.idusuarios AND usuarios.idusuarios = :id');
     $records->bindParam(':id', $_SESSION['usuario_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -19,6 +20,7 @@
     }
   }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +46,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+
     <?php require 'header.php' ?>
     <?php if(!empty($user)): ?>
       <br> Bienvenido. <?= $user['correo']; ?>
@@ -55,12 +59,29 @@
                 <a href="producto.php" class="btn btn-primary">Subir Producto</a>
             </div>
             <div class="col-sm-6">
-                <a href="modificarproductos.php" class="btn btn-primary">SEditar Productos</a>
+                <a href="modificarproductos.php" class="btn btn-primary">Editar Productos</a>
             </div>
             <div class="col-sm-6">
                 <a href="logout.php" class="btn btn-primary">Cerrar Sesion</a>
             </div>
             </div>
+            <!-- Agregar un checkbox que me muestre un mensaje al estar seleccionado -->
+            <div class="col-sm-6">
+                <!-- Dos Botones con metodo post -->
+                <form action="estatus.php" method="post">
+                    <!-- Lista -->
+                    <select name="estatus" id="estatus">
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                    <input type="hidden" name="id" value="<?= $user['idusuarios'] ?>">
+                    <button type="submit" class="btn btn-success mt-3 ">Cambiar Estatus</button>
+
+
+                </form>
+            </div>
+        </div>  
+      
 
     <?php else: ?>
       <h1>Inicia Sesion o Registrate para publicar productos</h1>
