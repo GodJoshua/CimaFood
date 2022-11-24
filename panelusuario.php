@@ -62,6 +62,10 @@
                 <a href="modificarproductos.php" class="btn btn-primary">Editar Productos</a>
             </div>
             <div class="col-sm-6">
+              <?php echo "<a href='editarnegocio.php?id=".$user['idnegocio']." class='btn btn-primary'>Editar Negocio</a>"
+                ?>
+            </div>
+            <div class="col-sm-6">
                 <a href="logout.php" class="btn btn-primary">Cerrar Sesion</a>
             </div>
             </div>
@@ -76,8 +80,6 @@
                     </select>
                     <input type="hidden" name="id" value="<?= $user['idusuarios'] ?>">
                     <button type="submit" class="btn btn-success mt-3 ">Cambiar Estatus</button>
-
-
                 </form>
             </div>
         </div>  
@@ -89,6 +91,8 @@
       <a href="login.php">Iniciar Sesion</a> or
       <a href="signup.php">Registrarse</a>
     <?php endif; ?>
+
+      
 
     
 </body>

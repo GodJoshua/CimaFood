@@ -9,8 +9,7 @@ $conexion = mysqli_connect("localhost", "root", "arath123", "cimafood");
 $nombre = $_POST['nombre'];
 $horarioinicio = $_POST['horarioinicio'];
 $horario = $_POST['horario'];
-$image = $_FILES['imagen']['tmp_name'];
-$img_content = addslashes(file_get_contents($image));
+$image = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 $descripcion = $_POST['descripcion'];
 $usuario = $_POST['usuario'];
 

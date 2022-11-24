@@ -7,8 +7,7 @@ $nombre = $_POST['nombre'];
 $descripcion = $_POST['descripcion'];
 $cantidad = $_POST['cantidad'];
 $categoria = $_POST['categoria'];
-$image = $_FILES['image']['tmp_name'];
-$img_content = addslashes(file_get_contents($image));
+$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 $precio = $_POST['precio'];
 $negocio = $_POST['id'];
 

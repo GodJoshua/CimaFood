@@ -37,14 +37,16 @@
                         <h5 class="card-title"></h5>
                         <p class="card-text" align="center"><b><?php echo $row['nombre_negocio'] ?></p></b>
                         <p>Descripcion del Negocio</p> <p class="text-success"><?php echo $row['descripcion_negocio'] ?></p> 
-                        <p >Estatus:</p> <p class="text-success"><?php echo $row['idestatus'] ?></p> 
-                        <p >Usuario:</p> <p class="text-success"><?php echo $row['idusuarios'] ?></p> <!-- (Debo cambiarle para que salga el nombre del usuario) -->
-                        <p >horario:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>
+                        <p >Estatus:</p> <p class="text-success"><?php if ($row['idestatus']>0){
+                            echo "Activo";
+                        }else{ echo "Inactivo";} ?></p> 
+                        <p >Horario de Inicio:</p> <p class="text-success"><?php echo $row['horario_inicio'] ?></p>
+                        <p >horario de Cierre:</p> <p class="text-success"><?php echo $row['horario_venta'] ?></p>
                         <p >Nombre Vendedor:</p> <p class="text-success"><?php echo $row['nombre'], ' ', $row['apellidoPat'] ?></p>    
 
                         </div>
                         <div class="card-footer" align="center">
-                        <a href="#" class="btn btn-primary">Ir a productos</a></div>
+                        <a href="productos.php" class="btn btn-primary">Ir a productos</a></div>
 </div>
 </div>
 </div>
