@@ -59,7 +59,7 @@
                 <a href="producto.php" class="btn btn-primary">Subir Producto</a>
             </div>
             <div class="col-sm-6">
-                <a href="modificarproductos.php" class="btn btn-primary">Editar Productos</a>
+                <a href="updateproductos.php" class="btn btn-primary">Editar Productos</a>
             </div>
             <div class="col-sm-6">
               <?php echo "<a href='editarnegocio.php?id=".$user['idnegocio']." class='btn btn-primary'>Editar Negocio</a>"

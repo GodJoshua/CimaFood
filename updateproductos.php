@@ -1,3 +1,14 @@
+<?php
+  session_start();
+
+
+  if (isset($_SESSION['usuario_id'])) {
+   //asignar a variable
+   $id = $_SESSION['usuario_id'];
+  }
+      
+?>
+
 <html> 
       <head>
          <title>Ejemplo de actualización de datos en base de datos MySQL</title>
@@ -71,13 +82,13 @@
          }
       return $link; 
       } 
- 
+
       $link = Conectarse();
- 
+
       if($_POST)
       {
          $queryUpdate = "UPDATE $tabla SET Nombre_Producto = '".$_POST['nombreForm']."',
-                        Descripcion_Producto = '".$_POST['apellidoForm']."', precio = '".$_POST['precioForm']."', cantidad = '".$_POST['cantidadForm']."'
+                        Descripcion_Producto = '".$_POST['apellidoForm']."', precio = '".$_POST['precioForm']."', cantidad = '".$_POST['cantidadForm']."', idCategoria = '".$_POST['categoriaForm']."'
                         WHERE   idProductos = ".$_POST['idForm'].";";
  
          $resultUpdate = mysqli_query($link, $queryUpdate); 
@@ -92,8 +103,8 @@
          }
  
       }
- 
-      $query = "SELECT   idProductos, Nombre_Producto, Descripcion_Producto, precio, cantidad FROM $tabla;";
+
+      $query = "SELECT * FROM $tabla INNER JOIN negocio where productos.idnegocio = negocio.idnegocio AND idusuarios = $id ;";
  
       $result = mysqli_query($link, $query); 
  
@@ -105,6 +116,8 @@
             <td>Descripcion_Producto</td>
             <td>Precio</td>
             <td>Cantidad</td>
+            <td>Categoria</td>
+
          <tr>
  
       <?php
@@ -124,9 +137,27 @@
          echo "<td>";
          echo $row["cantidad"];
          echo "</td>";
+         if ($row["idCategoria"] == 1) {
+            echo "<td>";
+            echo "Desayuno";
+            echo "</td>";
+         }else if ($row["idCategoria"] == 2) {
+            echo "<td>";
+            echo "Comida";
+            echo "</td>";
+         }else if ($row["idCategoria"] == 3) {
+            echo "<td>";
+            echo "Bebidas";
+            echo "</td>";
+         }
+
          echo "<td>";
-         echo "<a href=\"?id=".$row["idProductos"]."\">Actualizar</a>";
+         echo "<a href=\"?actualizar=".$row["idProductos"]."\">Actualizar</a>";
          echo "</td>";
+         echo "<td>";
+         echo "<a href=\"?borrar=".$row["idProductos"]."\">Borrar</a> ";
+         echo "</td>";
+ 
          echo "</tr>";
  
       } 
@@ -134,14 +165,31 @@
       mysqli_free_result($result); 
  
       ?>
- 
+
       </table>
-      <hr>
- 
-      <?php
-      if($_GET)
+   </tr>
+<?php
+
+if(isset($_GET['borrar']))
+{
+   $queryDelete = "DELETE FROM $tabla WHERE idProductos = ".$_GET['borrar'].";";
+
+   $resultDelete = mysqli_query($link, $queryDelete); 
+
+   if($resultDelete)
+   {
+      echo "<strong>El registro se ha eliminado con exito</strong>.<br>";
+   }
+   else
+   {
+      echo "Hubo un problema borrando el registro.";
+   }
+}
+?>
+<?php
+if(isset($_GET['actualizar']))
       {
-         $querySelectByID = "SELECT   idProductos, Nombre_Producto, Descripcion_Producto, precio,cantidad FROM $tabla WHERE   idProductos = ".$_GET['id'].";";
+         $querySelectByID = "SELECT   idProductos, Nombre_Producto, Descripcion_Producto, precio,cantidad, idCategoria FROM $tabla WHERE   idProductos = ".$_GET['actualizar'].";";
  
          $resultSelectByID = mysqli_query($link, $querySelectByID); 
  
@@ -154,6 +202,12 @@
          Descripcion_Producto: <input type="text" name="apellidoForm" value="<?=$rowSelectByID['Descripcion_Producto'];?>"> <br> <br>
          Precio: <input type="text" name="precioForm" value="<?=$rowSelectByID['precio'];?>"> <br> <br>
          Cantidad: <input type="text" name="cantidadForm" value="<?=$rowSelectByID['cantidad'];?>"> <br> <br>
+         Categoria: <select class="form-select" name="categoriaForm">
+            <option value="1">Desayuno</option>
+            <option value="2">Comida</option>
+            <option value="3">Bebidas</option>
+         </select>   <br> <br>
+
          <input type="submit" value="Guardar">
       </form>
  
@@ -163,3 +217,4 @@
       ?>
       </body> 
       </html>
+
