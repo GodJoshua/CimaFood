@@ -48,7 +48,14 @@
     ?>
     <?php $link = new PDO('mysql:host=localhost;dbname=cimafood', 'root', 'arath123'); 
 ?>
-<?php foreach ($link->query('SELECT * from productos INNER JOIN negocio WHERE negocio.idnegocio = productos.idnegocio ') as $row){  ?>  
+<?php 
+    
+    if (isset($_GET['idv'])){
+      $id = $_GET['idv'];
+      //código para registrar
+    }
+
+foreach ($link->query("SELECT * from productos INNER JOIN negocio WHERE negocio.idnegocio = productos.idnegocio  AND negocio.idnegocio = '{$_GET['idv']} ") as $row){  ?>  
 <div class="container" display:inline-block; margin-top: 50px;>
             <div class="row">
                 <div class="col-sm-4">

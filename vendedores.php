@@ -27,7 +27,7 @@
       <!--Tarjetas con imagenes   -->
 <?php $link = new PDO('mysql:host=localhost;dbname=cimafood', 'root', 'arath123'); 
 ?>
-<?php foreach ($link->query('SELECT * from negocio INNER JOIN usuarios WHERE negocio.idusuarios = usuarios.idusuarios') as $row){  ?> 
+<?php foreach ($link->query("SELECT * from negocio INNER JOIN usuarios WHERE negocio.idusuarios = usuarios.idusuarios ") as $row){  ?> 
 <div class="container" display:inline-block; margin-top: 50px;>
             <div class="row">
                 <div class="col-sm-4">
@@ -46,7 +46,10 @@
 
                         </div>
                         <div class="card-footer" align="center">
-                        <a href="productos.php" class="btn btn-primary">Ir a productos</a></div>
+                        <a href="productos.php?idv=<?php $row['idnegocio'];?> " class="btn btn-primary">Ir a productos</a></div>
+
+
+
 </div>
 </div>
 </div>
